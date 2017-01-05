@@ -23,8 +23,8 @@
  
         <!-- Annotated entity classes -->
         <mapping class="com.sklep.entity.Autor"/>
-        <!-- <mapping class="com.sklep.entity.Album"/>
-        <mapping class="com.sklep.entity.Utwor"/> -->
+        <mapping class="com.sklep.entity.Album"/>
+        <mapping class="com.sklep.entity.Utwor"/>
         
     </session-factory>
 </hibernate-configuration>
