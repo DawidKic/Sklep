@@ -26,9 +26,6 @@ public class Autor implements Serializable {
 		return Autor_ID;
 	}
 
-	public void setId(int id) {
-		this.Autor_ID = id;
-	}
 
 	public String getAutorNazwa() {
 		return autorNazwa;
