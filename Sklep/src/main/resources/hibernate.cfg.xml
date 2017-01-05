@@ -11,6 +11,10 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sklep</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"></property>
+        
+         <property name="hibernate.connection.CharSet">utf8</property>
+        <property name="hibernate.connection.characterEncoding">utf8</property>
+        <property name="hibernate.connection.useUnicode">true</property>
  
         <!-- SQL dialect -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -25,6 +29,7 @@
         <mapping class="com.sklep.entity.Autor"/>
         <mapping class="com.sklep.entity.Album"/>
         <mapping class="com.sklep.entity.Utwor"/>
+        
         
     </session-factory>
 </hibernate-configuration>

@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,7 +20,7 @@ import javax.persistence.Table;
 public class Album implements Serializable {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int Album_ID;
 
 	@Column(name = "AlbumNazwa")
@@ -29,7 +30,7 @@ public class Album implements Serializable {
 	private String wytwornia;
 
 	@Column(name = "DataWydania")
-	private Date dataWydania;
+	private String dataWydania;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Autor_ID")
@@ -38,7 +39,7 @@ public class Album implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Album")
 	private Set<Utwor> Utwory;
 
-	public Album(String albumNazwa, String wytwornia, Date dataWydania) {
+	public Album(String albumNazwa, String wytwornia, String dataWydania) {
 		this.albumNazwa = albumNazwa;
 		this.wytwornia = wytwornia;
 		this.dataWydania = dataWydania;	
@@ -47,7 +48,15 @@ public class Album implements Serializable {
 	public int getId() {
 		return Album_ID;
 	}
-
+	
+	public Autor getAutor()
+	{
+		return this.Autor;
+	}
+	
+	public void setAutor(Autor autor) {
+		this.Autor = autor;
+	}
 
 	public String getAlbumNazwa() {
 		return albumNazwa;
@@ -65,11 +74,11 @@ public class Album implements Serializable {
 		this.wytwornia = wytwornia;
 	}
 
-	public Date getDataWydania() {
+	public String getDataWydania() {
 		return dataWydania;
 	}
 
-	public void setDataWydania(Date dataWydania) {
+	public void setDataWydania(String dataWydania) {
 		this.dataWydania = dataWydania;
 	}
 }
