@@ -6,14 +6,14 @@ import org.hibernate.cfg.Configuration;
 
 import com.sklep.entity.Autor;
 
-public class ManageAutor {
+public class FillTable {
 	 private static SessionFactory factory; 
 	public static void main(String[] args) {
 		factory = new Configuration().configure().buildSessionFactory();
-		ManageAutor MA = new ManageAutor();
-		MA.addAutor("Closterkeller");
-		MA.addAutor("Disturbed");
-		MA.addAutor("Eminem");
+		FillTable FT = new FillTable();
+		FT.addAutor("Closterkeller");
+		FT.addAutor("Disturbed");
+		FT.addAutor("Eminem");
 	}
 
 	public void addAutor(String autor_nazwa) {
