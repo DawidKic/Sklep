@@ -26,6 +26,8 @@ public class FillTable {
 		Album album2 = FT.addAlbum("Aurum", "Universal Music Polska", "2009-10-05", autor1);
 		Autor autor2 = FT.addAutor("Disturbed");
 		Autor autor_3 = FT.addAutor("Eminem");
+		
+		//factory.close();
 
 	}
 
