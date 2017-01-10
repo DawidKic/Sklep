@@ -11,7 +11,7 @@ public class HelloControler{
    @RequestMapping(value = "/index", method = RequestMethod.GET)
    public String printHello(ModelMap model) {
       model.addAttribute("message", "Hello Spring MVC Framework!");
-      return "index.jsp";
+      return "index";
    }
 
 }
