@@ -2,15 +2,23 @@ package com.sklep;
 
 import java.sql.Date;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.sklep.entity.Album;
-import com.sklep.entity.Autor;
-import com.sklep.entity.Utwor;
+import com.sklep.entity.album.Album;
+import com.sklep.entity.autor.Autor;
+import com.sklep.entity.autor.AutorRepository;
+import com.sklep.entity.utwor.Utwor;
 
 public class FillTable {
 	private static SessionFactory factory;
@@ -20,13 +28,14 @@ public class FillTable {
 		FillTable FT = new FillTable();
 		Autor autor1 = FT.addAutor("Closterkeller");
 		Album album1 = FT.addAlbum("Bordeaux", "Universal Music Polska", "2011-09-16", autor1);
-		Utwor utwor1 = FT.addUtwor("Pora iœæ ju¿ drogi mój", "5:05", album1);
+		Utwor utwor1 = FT.addUtwor("Alarm", "5:05", album1);
 		Utwor utwor2 = FT.addUtwor("Fala", "5:28", album1);
 		Utwor utwor3 = FT.addUtwor("Bordeaux", "4:12", album1);
 		Album album2 = FT.addAlbum("Aurum", "Universal Music Polska", "2009-10-05", autor1);
 		Autor autor2 = FT.addAutor("Disturbed");
 		Autor autor_3 = FT.addAutor("Eminem");
 		
+
 		//factory.close();
 
 	}
@@ -72,5 +81,7 @@ public class FillTable {
 		session.close();
 		return utwor;
 	}
+	
+
 
 }

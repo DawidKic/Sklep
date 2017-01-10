@@ -26,9 +26,9 @@
         <property name="hibernate.hbm2ddl.auto">create-drop</property>
  
         <!-- Annotated entity classes -->
-        <mapping class="com.sklep.entity.Autor"/>
-        <mapping class="com.sklep.entity.Album"/>
-        <mapping class="com.sklep.entity.Utwor"/>
+        <mapping class="com.sklep.entity.autor.Autor"/>
+        <mapping class="com.sklep.entity.album.Album"/>
+        <mapping class="com.sklep.entity.utwor.Utwor"/>
         
         
     </session-factory>
