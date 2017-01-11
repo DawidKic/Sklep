@@ -32,8 +32,8 @@ public class AlbumRepository {
 
 	}
 	
-	public List findWithName(String name) {
-		String query = "";
+	public List listAlbum() {
+		String query = "SELECT a FROM Album a";
 		return entityManager.createQuery(query).getResultList();
 		}
 

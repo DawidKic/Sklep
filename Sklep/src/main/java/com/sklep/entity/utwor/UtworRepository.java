@@ -1,5 +1,7 @@
 package com.sklep.entity.utwor;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -27,5 +29,7 @@ public class UtworRepository {
 		 entityManager.persist(utwor);
 		 return utwor;
 	    }
+	 
+
 	
 }

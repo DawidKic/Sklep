@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sklep.entity.album.Album;
 import com.sklep.entity.album.AlbumRepository;
@@ -29,6 +30,8 @@ public class CreateController {
 	AlbumRepository albumRepository;
 	@Autowired
 	UtworRepository utworRepository;
+	@Autowired
+	CreateRepository createRepository;
 	
 	@RequestMapping(value = "/createTables", method = RequestMethod.GET)
 	public String createTables(ModelMap model) {
@@ -44,9 +47,27 @@ public class CreateController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/printAlbum", method = RequestMethod.GET)
+	@RequestMapping(value = "/listAlbum", method = RequestMethod.GET)
 	public String printAlbumTable(ModelMap model) {
-
+		List result = createRepository.listAlbum();
+		model.addAttribute("result", result);
 		return "index";
+	}
+	
+	@RequestMapping(value = "/listAlbumTest", method = RequestMethod.GET)
+	public String printAlbumTest(ModelMap model) {
+		List result = albumRepository.listAlbum();
+		model.addAttribute("result", result);
+		return "index";
+	}
+	
+	
+	@RequestMapping(value = "/utworList", method = RequestMethod.GET)
+	public String findUtwor(ModelMap model, @RequestParam("albumId") String albumId) {
+	
+		List result = createRepository.listUtwor(albumId);
+		model.addAttribute("utwor", result);
+		return "utwor";
+		
 	}
 }
